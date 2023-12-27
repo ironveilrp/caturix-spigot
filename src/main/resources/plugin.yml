@@ -1,0 +1,7 @@
+name: Caturix
+version: @version@
+author: Ninjoh
+api-version: 1.20
+main: com.fablesfantasyrp.caturix.spigot.CaturixSpigot
+libraries:
+  - com.google.guava:guava:33.0.0-jre
