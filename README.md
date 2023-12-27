@@ -1,5 +1,5 @@
-# NinCommands [![](https://jitpack.io/v/com.gitlab.martijn-heil/NinCommands.svg)](https://jitpack.io/#com.gitlab.martijn-heil/NinCommands)
-An adaptation of [Intake](https://github.com/EngineHub/Intake) for Bukkit.
+# caturix-spigot [![](https://jitpack.io/v/com.github.fablesfantasyrp/caturix-spigot.svg)](https://jitpack.io/#com.github.fablesfantasyrp/caturix-spigot)
+An adaptation of [Caturix](https://github.com/fablesfantasyrp/caturix) for Spigot.
 
 A basic example (written in [Kotlin](https://kotlinlang.org/)):
 ```kotlin
