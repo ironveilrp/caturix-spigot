@@ -24,6 +24,13 @@ import com.fablesfantasyrp.caturix.parametric.Injector
 
 class FixedSuggestionsModule(private val injector: Injector) : AbstractModule() {
     override fun configure() {
+        bind(Boolean::class.javaObjectType).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Boolean::class.javaObjectType)!!))
+        bind(Int::class.javaObjectType).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Int::class.javaObjectType)!!))
+        bind(Short::class.javaObjectType).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Short::class.javaObjectType)!!))
+        bind(Double::class.javaObjectType).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Double::class.javaObjectType)!!))
+        bind(Float::class.javaObjectType).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Float::class.javaObjectType)!!))
+        bind(String::class.javaObjectType).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(String::class.javaObjectType)!!))
+
         bind(Boolean::class.java).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Boolean::class.java)!!))
         bind(Int::class.java).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Int::class.java)!!))
         bind(Short::class.java).annotatedWith(FixedSuggestions::class.java).toProvider(FixedSuggestionsProvider(injector.getProvider(Short::class.java)!!))

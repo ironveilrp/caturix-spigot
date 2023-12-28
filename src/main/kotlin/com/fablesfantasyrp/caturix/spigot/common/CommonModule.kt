@@ -26,6 +26,7 @@ import java.time.Duration
 class CommonModule : AbstractModule() {
 
     override fun configure() {
+        bind(Boolean::class.javaObjectType).annotatedWith(Toggle::class.java).toProvider(ToggleProvider())
         bind(Boolean::class.java).annotatedWith(Toggle::class.java).toProvider(ToggleProvider())
         bind(Duration::class.java).toProvider(DurationProvider())
     }
