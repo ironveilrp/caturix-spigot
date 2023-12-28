@@ -57,8 +57,6 @@ tasks {
     }
 }
 
-tasks["build"].dependsOn("shadowJar")
-
 defaultTasks = mutableListOf("build")
 
 repositories {
