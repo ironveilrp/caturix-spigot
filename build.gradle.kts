@@ -81,6 +81,6 @@ idea {
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT") { isChanging = true }
     shadow(kotlin("stdlib"))
-    shadow("com.github.fablesfantasyrp:caturix:6bd83946d0")
-    api("com.github.fablesfantasyrp:caturix:6bd83946d0")
+    shadow("com.github.fablesfantasyrp:caturix:60207826a2")
+    api("com.github.fablesfantasyrp:caturix:60207826a2")
 }
