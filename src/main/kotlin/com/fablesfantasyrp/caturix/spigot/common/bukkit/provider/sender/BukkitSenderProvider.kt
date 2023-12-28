@@ -29,7 +29,7 @@ class BukkitSenderProvider<T: CommandSender>(val clazz: Class<T>) : Provider<T> 
     override val isProvided = true
 
     @Throws(ArgumentException::class, ProvisionException::class)
-    override fun get(commandArgs: CommandArgs, list: List<Annotation>): T {
+    override suspend fun get(commandArgs: CommandArgs, list: List<Annotation>): T {
         val namespace = commandArgs.namespace
         val senderClass = namespace.get("senderClass") as? Class<*>
                 ?: throw ProvisionException("Sender's class was not set on namespace")
@@ -51,7 +51,7 @@ class BukkitSenderProvider<T: CommandSender>(val clazz: Class<T>) : Provider<T> 
     }
 
 
-    override fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
+    override suspend fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
         return emptyList()
     }
 }

@@ -30,12 +30,12 @@ class MaterialProvider : Provider<Material> {
     override val isProvided = false
 
     @Throws(ArgumentException::class, ProvisionException::class)
-    override fun get(arguments: CommandArgs, modifiers: List<Annotation>): Material {
+    override suspend fun get(arguments: CommandArgs, modifiers: List<Annotation>): Material {
         val name = arguments.next()
         return Material.matchMaterial(name) ?: throw ArgumentParseException("Unknown material '$name'")
     }
 
-    override fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
+    override suspend fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
         return Material.values()
             .map { it.name.lowercase() }
             .plus(Material.values().map { "minecraft:${it.name.lowercase()}" })

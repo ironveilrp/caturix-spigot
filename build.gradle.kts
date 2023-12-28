@@ -79,8 +79,8 @@ idea {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT") { isChanging = true }
-    shadow(kotlin("stdlib"))
-    shadow("com.github.fablesfantasyrp:caturix:a42054fe0f")
-    api("com.github.fablesfantasyrp:caturix:a42054fe0f")
+    implementation("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT") { isChanging = true }
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0-RC2")
+    shadow("com.github.fablesfantasyrp:caturix:025c2dfca8") { isTransitive = false }
+    api("com.github.fablesfantasyrp:caturix:025c2dfca8")
 }

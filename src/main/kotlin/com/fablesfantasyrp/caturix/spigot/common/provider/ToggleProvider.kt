@@ -33,7 +33,7 @@ class ToggleProvider : Provider<Boolean> {
     override val isProvided = false
 
     @Throws(ArgumentException::class, ProvisionException::class)
-    override fun get(arguments: CommandArgs, modifiers: List<Annotation>): Boolean {
+    override suspend fun get(arguments: CommandArgs, modifiers: List<Annotation>): Boolean {
 
         val activated: Boolean = when (val next = arguments.next()) {
             "on" -> true
@@ -44,7 +44,6 @@ class ToggleProvider : Provider<Boolean> {
         return activated
     }
 
-
-    override fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String>
+    override suspend fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String>
         = listOf("off", "on")
 }

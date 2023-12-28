@@ -34,7 +34,7 @@ class PlayerProvider(private val server: Server, private val offlinePlayerProvid
     override val isProvided = false
 
     @Throws(ArgumentException::class, ProvisionException::class)
-    override fun get(arguments: CommandArgs, modifiers: List<Annotation>): Player {
+    override suspend fun get(arguments: CommandArgs, modifiers: List<Annotation>): Player {
         val sender = arguments.namespace.get("sender") as CommandSender
 
         // Vanilla command target selector
@@ -55,7 +55,7 @@ class PlayerProvider(private val server: Server, private val offlinePlayerProvid
         }
     }
 
-    override fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
+    override suspend fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
         // TODO UUID suggestions?
         val matches = server.matchPlayer(prefix)
         val suggestions = ArrayList<String>()

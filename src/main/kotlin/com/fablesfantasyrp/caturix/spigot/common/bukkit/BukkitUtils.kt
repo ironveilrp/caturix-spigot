@@ -19,6 +19,7 @@
 package com.fablesfantasyrp.caturix.spigot.common.bukkit
 
 import com.fablesfantasyrp.caturix.CommandCallable
+import kotlinx.coroutines.CoroutineScope
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandMap
@@ -30,11 +31,14 @@ private fun getBukkitCommandMap(): CommandMap {
     return bukkitCommandMap.get(Bukkit.getServer()) as CommandMap
 }
 
-fun registerCommand(cmd: CommandCallable, plugin: Plugin, aliases: List<String>): Command? {
+fun registerCommand(cmd: CommandCallable,
+                    plugin: Plugin,
+                    aliases: List<String>,
+                    launch: (block: suspend CoroutineScope.() -> Unit) -> Unit): Command? {
     try {
         val commandMap = getBukkitCommandMap()
         val fallbackPrefix = plugin.name.lowercase()
-        val command = RootCommand(cmd, aliases, fallbackPrefix)
+        val command = RootCommand(launch, cmd, aliases, fallbackPrefix)
         commandMap.register(fallbackPrefix, command)
         return command
     } catch (e: IllegalAccessException) {

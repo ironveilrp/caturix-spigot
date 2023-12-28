@@ -37,7 +37,7 @@ class OfflinePlayerProvider(private val server: Server) : Provider<OfflinePlayer
 
 
     @Throws(ArgumentException::class, ProvisionException::class)
-    override fun get(arguments: CommandArgs, modifiers: List<Annotation>): OfflinePlayer {
+    override suspend fun get(arguments: CommandArgs, modifiers: List<Annotation>): OfflinePlayer {
         val sender = arguments.namespace.get("sender") as CommandSender
         var targetAnnotation: CommandTarget? = null
 
@@ -80,7 +80,7 @@ class OfflinePlayerProvider(private val server: Server) : Provider<OfflinePlayer
     }
 
 
-    override fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
+    override suspend fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String> {
         return server.onlinePlayers.map { it.name }.filter { it.lowercase().startsWith(prefix.lowercase()) }
     }
 }

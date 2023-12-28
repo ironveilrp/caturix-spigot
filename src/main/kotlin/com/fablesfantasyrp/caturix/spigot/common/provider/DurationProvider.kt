@@ -31,9 +31,9 @@ class DurationProvider : Provider<Duration> {
 
 	@Throws(ArgumentException::class, ProvisionException::class)
 	@OptIn(kotlin.time.ExperimentalTime::class)
-	override fun get(arguments: CommandArgs, modifiers: List<Annotation>)
+	override suspend fun get(arguments: CommandArgs, modifiers: List<Annotation>)
 		= kotlin.time.Duration.parse(arguments.next()).toJavaDuration()
 
-	override fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String>
+	override suspend fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): List<String>
 		= emptyList()
 }

@@ -26,10 +26,10 @@ import com.fablesfantasyrp.caturix.parametric.Provider
 class FixedSuggestionsProvider<T>(private val parent: Provider<T>) : Provider<T> {
 	override val isProvided = parent.isProvided
 
-	override fun get(arguments: CommandArgs, modifiers: List<Annotation>) =
+	override suspend fun get(arguments: CommandArgs, modifiers: List<Annotation>) =
 			parent.get(arguments, modifiers)
 
-	override fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): MutableList<String> =
+	override suspend fun getSuggestions(prefix: String, locals: Namespace, modifiers: List<Annotation>): MutableList<String> =
 			modifiers.find { it is Suggestions }
 					?.let { it as Suggestions }?.suggestions?.toMutableList() ?: mutableListOf()
 }
