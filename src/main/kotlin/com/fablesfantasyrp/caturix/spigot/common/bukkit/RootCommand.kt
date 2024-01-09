@@ -57,6 +57,7 @@ class RootCommand(private val launch: (block: suspend CoroutineScope.() -> Unit)
                 sendError(sender, cx.message ?: "Permission denied.")
             } catch (icx: InvocationCommandException) {
                 when (icx.cause) {
+                    is CancellationException -> { /* Do nothing */ }
                     is AuthorizationException -> { sendError(sender, icx.cause!!.message ?: "Permission denied.") }
                     is CommandException -> { sendError(sender, icx.cause!!.message ?: "Unknown error.") }
                     is ProvisionException -> { sendError(sender, icx.cause!!.message ?: "Unknown error") }
