@@ -24,9 +24,8 @@ import com.fablesfantasyrp.caturix.InvocationCommandException
 import com.fablesfantasyrp.caturix.argument.Namespace
 import com.fablesfantasyrp.caturix.parametric.ProvisionException
 import com.fablesfantasyrp.caturix.util.auth.AuthorizationException
-import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.runBlocking
 import org.bukkit.ChatColor
 import org.bukkit.Location
@@ -34,7 +33,6 @@ import org.bukkit.command.CommandSender
 import org.bukkit.command.defaults.BukkitCommand
 import org.bukkit.entity.Entity
 import org.bukkit.permissions.Permissible
-import kotlin.coroutines.CoroutineContext
 
 class RootCommand(private val launch: (block: suspend CoroutineScope.() -> Unit) -> Unit,
                   private val callable: CommandCallable,
@@ -67,6 +65,8 @@ class RootCommand(private val launch: (block: suspend CoroutineScope.() -> Unit)
                         icx.printStackTrace()
                     }
                 }
+            } catch (_: CancellationException) {
+                // Do nothing
             } catch (ex: Exception) {
                 sendError(sender, "An internal server error occurred")
                 ex.printStackTrace()
