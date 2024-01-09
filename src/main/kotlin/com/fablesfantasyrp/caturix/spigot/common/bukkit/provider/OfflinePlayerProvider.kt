@@ -25,6 +25,8 @@ import com.fablesfantasyrp.caturix.parametric.Provider
 import com.fablesfantasyrp.caturix.parametric.ProvisionException
 import com.fablesfantasyrp.caturix.spigot.common.CommandTarget
 import com.fablesfantasyrp.caturix.argument.Namespace
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.bukkit.OfflinePlayer
 import org.bukkit.Server
 import org.bukkit.command.CommandSender
@@ -56,8 +58,7 @@ class OfflinePlayerProvider(private val server: Server) : Provider<OfflinePlayer
             p = if (arg.matches("[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}".toRegex())) {
                 server.getOfflinePlayer(UUID.fromString(arg))
             } else {
-                // TODO use async
-                server.getOfflinePlayer(arg)
+                withContext(Dispatchers.IO) { @Suppress("DEPRECATION") server.getOfflinePlayer(arg) }
             }
         } else if (targetAnnotation != null && sender is OfflinePlayer) {
             p = sender
