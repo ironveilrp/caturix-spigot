@@ -30,7 +30,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.fablesfantasyrp"
+group = "com.github.ironveilrp"
 version = "1.0.1"
 description = "caturix-spigot"
 
@@ -79,6 +79,6 @@ idea {
 dependencies {
     implementation("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT") { isChanging = true }
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0-RC2")
-    shadow("com.github.fablesfantasyrp:caturix:1.0.0") { isTransitive = false }
-    api("com.github.fablesfantasyrp:caturix:1.0.0")
+    shadow("com.github.ironveilrp:caturix:4b1dea6") { isTransitive = false }
+    api("com.github.ironveilrp:caturix:4b1dea6")
 }
