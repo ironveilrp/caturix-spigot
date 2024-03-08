@@ -19,6 +19,7 @@
 package com.fablesfantasyrp.caturix.spigot.common.bukkit.provider
 
 import com.fablesfantasyrp.caturix.parametric.AbstractModule
+import org.bukkit.Color
 import org.bukkit.Material
 import org.bukkit.OfflinePlayer
 import org.bukkit.Server
@@ -31,5 +32,6 @@ class BukkitModule(private val server: Server) : AbstractModule() {
         bind(Player::class.java).toProvider(PlayerProvider(server, OfflinePlayerProvider(server)))
         bind(OfflinePlayer::class.java).toProvider(OfflinePlayerProvider(server))
         bind(Material::class.java).toProvider(MaterialProvider())
+        bind(Color::class.java).toProvider(ColorProvider())
     }
 }

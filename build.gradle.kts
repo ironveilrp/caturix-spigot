@@ -31,7 +31,7 @@ plugins {
 }
 
 group = "com.github.fablesfantasyrp"
-version = "1.0.0"
+version = "1.0.1"
 description = "caturix-spigot"
 
 apply {
@@ -79,6 +79,6 @@ idea {
 dependencies {
     implementation("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT") { isChanging = true }
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0-RC2")
-    shadow("com.github.fablesfantasyrp:caturix:025c2dfca8") { isTransitive = false }
-    api("com.github.fablesfantasyrp:caturix:025c2dfca8")
+    shadow("com.github.fablesfantasyrp:caturix:1.0.0") { isTransitive = false }
+    api("com.github.fablesfantasyrp:caturix:1.0.0")
 }
