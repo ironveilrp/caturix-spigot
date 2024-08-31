@@ -1,21 +1,21 @@
-# caturix-spigot [![](https://jitpack.io/v/com.github.fablesfantasyrp/caturix-spigot.svg)](https://jitpack.io/#com.github.fablesfantasyrp/caturix-spigot)
-An adaptation of [Caturix](https://github.com/fablesfantasyrp/caturix) for Spigot.
+# caturix-spigot [![](https://jitpack.io/v/com.github.ironveilrp/caturix-spigot.svg)](https://jitpack.io/#com.github.ironveilrp/caturix-spigot)
+An adaptation of [Caturix](https://github.com/ironveilrp/caturix) for Spigot.
 
 A basic example (written in [Kotlin](https://kotlinlang.org/)):
 ```kotlin
-import com.fablesfantasyrp.caturix.spigot.common.CommonModule
-import com.fablesfantasyrp.caturix.spigot.common.CommandTarget
-import com.fablesfantasyrp.caturix.spigot.common.Toggle
-import com.fablesfantasyrp.caturix.spigot.common.bukkit.BukkitAuthorizer
-import com.fablesfantasyrp.caturix.spigot.common.bukkit.provider.BukkitModule
-import com.fablesfantasyrp.caturix.spigot.common.bukkit.provider.sender.BukkitSenderModule
-import com.fablesfantasyrp.caturix.spigot.common.bukkit.registerCommand
-import com.fablesfantasyrp.caturix.Intake
-import com.fablesfantasyrp.caturix.fluent.CommandGraph
-import com.fablesfantasyrp.caturix.parametric.ParametricBuilder
-import com.fablesfantasyrp.caturix.parametric.provider.PrimitivesModule
-import com.fablesfantasyrp.caturix.Command
-import com.fablesfantasyrp.caturix.Require
+import com.ironveilrp.caturix.spigot.common.CommonModule
+import com.ironveilrp.caturix.spigot.common.CommandTarget
+import com.ironveilrp.caturix.spigot.common.Toggle
+import com.ironveilrp.caturix.spigot.common.bukkit.BukkitAuthorizer
+import com.ironveilrp.caturix.spigot.common.bukkit.provider.BukkitModule
+import com.ironveilrp.caturix.spigot.common.bukkit.provider.sender.BukkitSenderModule
+import com.ironveilrp.caturix.spigot.common.bukkit.registerCommand
+import com.ironveilrp.caturix.Intake
+import com.ironveilrp.caturix.fluent.CommandGraph
+import com.ironveilrp.caturix.parametric.ParametricBuilder
+import com.ironveilrp.caturix.parametric.provider.PrimitivesModule
+import com.ironveilrp.caturix.Command
+import com.ironveilrp.caturix.Require
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 
